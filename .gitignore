@@ -1,0 +1,11 @@
+# Compiled executable
+main
+wordleclimb
+w
+
+# Debug files
+*.dSYM/
+*.o
+
+# macOS files
+.DS_Store
