@@ -5,6 +5,7 @@
 #include <vector>
 #include <limits>
 #include "Puzzle.h"
+#include "Ladder.h"
 using namespace std;
 
 void typeWriter(string text, int speed)
@@ -58,6 +59,11 @@ void startGame()
 
             if (checkAnswer(puzzles[i], answer))
             {
+                if (i > 0 && !isOneLetterApart(puzzles[i - 1].word, puzzles[i].word))
+                {
+                    cout << "\nWord ladder rule violated!\n";
+                    continue;
+                }
                 cout << "\nCorrect answer!\n";
                 score += puzzles[i].points;
 
