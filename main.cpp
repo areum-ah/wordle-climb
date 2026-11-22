@@ -45,12 +45,15 @@ void startGame()
 
         {"WARM", "Having a comfortably high temperature.", 4, 100}};
     int score = 0;
+    int totalAttempts = 0;
+
     string answer;
 
     for (int i = 0; i < puzzles.size(); i++)
     {
 
         bool correct = false;
+        int attempts = 0;
 
         while (!correct)
         {
@@ -58,6 +61,11 @@ void startGame()
             displayPuzzle(puzzles[i], i + 1);
 
             cin >> answer;
+
+            attempts++;
+            totalAttempts++;
+
+            cout << "Attempts: " << attempts << endl;
 
             if (!validateWithDFA(answer))
             {
@@ -88,6 +96,7 @@ void startGame()
         }
 
         cout << "\nCurrent Score: " << score << endl;
+        cout << "Attempts used in this level: " << attempts << endl;
     }
 
     cout << "\n====================================\n";
@@ -95,6 +104,8 @@ void startGame()
     cout << "====================================\n";
 
     cout << "Final Score: " << score << endl;
+
+    cout << "Total Attempts: " << totalAttempts << endl;
 
     cout << "\nCongratulations! You completed WordleClimb!\n";
 
