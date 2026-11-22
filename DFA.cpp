@@ -1,3 +1,8 @@
+// Terminal colours
+#define GREEN "\033[1;32m"
+#define RED "\033[1;31m"
+#define RESET "\033[0m"
+
 #include <iostream>
 #include<cctype>
 #include "DFA.h"
@@ -31,12 +36,12 @@ bool validateWithDFA(string input){
 
     if (state == 4) {
         cout << "Final State: q4\n";
-        cout << "DFA Result: ACCEPTED\n";
+        cout << GREEN<< "DFA Result: ACCEPTED\n"<<RESET<<"\n";
         return true;
     }
     else {
         cout << "Final State: DEAD / NON-ACCEPTING\n";
-        cout << "DFA Result: REJECTED\n";
+        cout << RED<< "DFA Result: REJECTED\n"<< RESET << "\n";
         return false;
     }
 }
