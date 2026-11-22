@@ -6,6 +6,8 @@
 #include <limits>
 #include "Puzzle.h"
 #include "Ladder.h"
+#include "DFA.h"
+
 using namespace std;
 
 void typeWriter(string text, int speed)
@@ -57,6 +59,13 @@ void startGame()
 
             cin >> answer;
 
+            if (!validateWithDFA(answer))
+            {
+                cout << "\nInvalid word format!";
+                cout << "\nPlease enter exactly 4 alphabetic letters.\n";
+                continue;
+            }
+
             if (checkAnswer(puzzles[i], answer))
             {
                 if (i > 0 && !isOneLetterApart(puzzles[i - 1].word, puzzles[i].word))
@@ -74,7 +83,6 @@ void startGame()
 
             else
             {
-
                 cout << "\nIncorrect answer! Try again.\n";
             }
         }
