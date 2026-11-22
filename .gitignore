@@ -1,7 +1,7 @@
 # Compiled executable
 main
 wordleclimb
-w
+a.out
 
 # Debug files
 *.dSYM/
@@ -9,3 +9,6 @@ w
 
 # macOS files
 .DS_Store
+
+# VS Code settings
+.vscode/
